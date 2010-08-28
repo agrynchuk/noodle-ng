@@ -13,7 +13,7 @@
 = Installation =
 
   # download noodle via [http://code.google.com/p/noodle-ng/source/checkout svn] to /opt/noodle or any other directory that suits you. We assume /opt/noodle in this guide.
-  # copy the developement_template.ini to developement.ini and do the same with production_template.ini.
+  # copy developement_template.ini to developement.ini and do the same with production_template.ini.
   # run "paster setup-app development.ini" to setup the database. Currently you use a sqlite db in the noodle directory.
   # edit the hcrawler.py to scan the ip range you are interested in. This has to be done in code, but we will make this easier in the future.
   # now you can run "paster serve development.ini" and see the result in your browser on port 8080
