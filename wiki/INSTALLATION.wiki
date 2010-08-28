@@ -1,4 +1,4 @@
-= prerequisites =
+= Prerequisites =
 
   * a [http://www.turbogears.org/2.0/ turbogears 2] environment (currently we use 2.0b2)
   * [http://cyberelk.net/tim/software/pysmbc/ pysmbc] in version 1.09 or up
