@@ -6,6 +6,7 @@
   * smbclient (currently required for the crawler. We hope to get rid of this dependency soon)
 *nice to have:*
   * a decent sql database like mysql
+  * apache2 with mod_wsgi
 
 
 
