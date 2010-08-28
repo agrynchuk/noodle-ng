@@ -1,4 +1,3 @@
-#Howto install noodle-ng
 
 = prerequisites =
 
