@@ -1,6 +1,6 @@
 = prerequisites =
 
-  * a [http://turbogears.org/ turbogears 2] environment (currently we use 2.0b2)
+  * a [http://www.turbogears.org/2.0/ turbogears 2] environment (currently we use 2.0b2)
   * [http://cyberelk.net/tim/software/pysmbc/ pysmbc] in version 1.09 or up
   * libsmbclient
   * smbclient (currently required for the crawler. We hope to get rid of this dependency soon)
@@ -8,12 +8,10 @@
   * a decent sql database like mysql
   * apache2 with mod_wsgi
 
-
-
 = Installation =
 
-  # download noodle via [http://code.google.com/p/noodle-ng/source/checkout svn] to /opt/noodle or any other directory that suits you. We assume /opt/noodle in this guide.
-  # copy developement_template.ini to developement.ini and do the same with production_template.ini.
+  # checkout noodle via [http://code.google.com/p/noodle-ng/source/checkout svn] to /opt/noodle or any other directory that suits you. We assume /opt/noodle in this guide.
+  # copy the development_template.ini to development.ini and do the same with production_template.ini and edit the files according to your environment (url to database, ...)
   # run "paster setup-app development.ini" to setup the database. Currently you use a sqlite db in the noodle directory.
   # edit the hcrawler.py to scan the ip range you are interested in. This has to be done in code, but we will make this easier in the future.
   # now you can run "paster serve development.ini" and see the result in your browser on port 8080
@@ -23,6 +21,6 @@
 = What to do next =
 sqlite is not a very fast database solution and should be substitute with something more decent like mysql or postgresql.
 
-paster is nice for development but not a very performing web server. You can use apache2 with mod_wsgi instead.
+paster is nice for development but not a very performing web server. You can use apache2 with mod_wsgi instead. (Instructions on that follow.)
 
 setup a cron job that runs hcrawler and statsd on a regular basis.
