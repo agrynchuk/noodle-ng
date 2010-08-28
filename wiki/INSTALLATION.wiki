@@ -19,7 +19,7 @@
 
 
 = What to do next =
-sqlite is not a very fast database solution and should be substitute with something more decent like mysql or postgresql.
+sqlite is not a very fast database solution and should be substituted with something more decent like mysql or postgresql.
 
 paster is nice for development but not a very performing web server. You can use apache2 with mod_wsgi instead. (Instructions on that follow.)
 
