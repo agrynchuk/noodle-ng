@@ -1,8 +1,7 @@
-
 = prerequisites =
 
   * a [http://turbogears.org/ turbogears 2] environment (currently we use 2.0b2)
-  * pysmbc in version 1.09 or up
+  * [http://cyberelk.net/tim/software/pysmbc/ pysmbc] in version 1.09 or up
   * libsmbclient
   * smbclient (currently required for the crawler. We hope to get rid of this dependency soon)
 *nice to have:*
