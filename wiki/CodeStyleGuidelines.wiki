@@ -1,6 +1,6 @@
 #summary Our guidelines for nice, readable and understandable code.
 
-= Cody Style Guidelines =
+= Code Style Guidelines =
 
 I thought we could collect some recommendations for code formatting:
 
