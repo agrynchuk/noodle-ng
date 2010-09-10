@@ -1,3 +1,6 @@
+#summary The Noodle NG Development roadmap
+#labels internal development
+
 = Noodle NG Roadmap =
 
 <wiki:comment>

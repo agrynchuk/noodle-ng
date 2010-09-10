@@ -1,4 +1,5 @@
-#labels Licence
+#summary GNU General Public Licence Version 3 (GPLv3)
+#labels licence
 <pre>
                     GNU GENERAL PUBLIC LICENSE
                        Version 3, 29 June 2007

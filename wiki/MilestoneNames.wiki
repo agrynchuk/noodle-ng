@@ -1,5 +1,7 @@
-#labels internal
-= Collection of interesting keywords for Noodle-NG milestones =
+#summary Collection of milestone names for noodle
+#labels internal development
+
+= Collection of interesting keywords for Noodle NG milestones =
 
 == Noodles: ==
   * Agnolotti
