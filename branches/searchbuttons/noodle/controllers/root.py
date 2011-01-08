@@ -102,7 +102,7 @@ class RootController(BaseController):
             path="/search_by_host?query=%s" % query
         
         for (key,value) in args.items():
-            if (value != "") and (value != "0") and (key != "mode"):
+            if (value != "") and (value != "0") and (key != "mode") and (key !="submit"):
                 path += " %s:%s" % (key,value)
         
         redirect(path)
