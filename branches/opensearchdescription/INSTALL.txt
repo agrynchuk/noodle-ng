@@ -1,0 +1,1 @@
+﻿Please take a look in the online documentation at http://code.google.com/p/noodle-ng/wiki/INSTALLATION
