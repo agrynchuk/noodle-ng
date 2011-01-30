@@ -1,4 +1,0 @@
-recursive-include noodle/public *
-include noodle/public/favicon.ico
-recursive-include noodle/i18n *
-recursive-include noodle/templates *
