@@ -5,14 +5,23 @@ Since Noodle NG requires quite some time and knowledge to setup from srcatch we 
 
 The root password is "ketchup".
 
-Since we needed to strip down scientific linux 6 so heavily you most likely want to install some basic software: `yum groupinstall Base "Networking Tools" "Server Platform" "System administration tools" Virtualization "Virtualization Client"`
+Since we needed to strip down scientific linux 6 so heavily you most likely want to install some basic software:
+
+`yum groupinstall Base "Networking Tools" "Server Platform" "System administration tools" Virtualization "Virtualization Client"`
 
 *Change the root password!*
 
 edit the file /opt/noodle-ng/crawler.ini to fit your needs and run the crawler by starting the /opt/noodle-ng/start_crawler.sh shell script. This will populate the database. You find the webserver of your appliance at port 80.
 
 == Follow Up==
-ToDo
+*Set up a real database for Noodle NG.*
+ The sqlite database of the appliance is a good start but quickly reaches performance limits. Since the appliance is not intended to be upgradable you should set up an external database host. This can be any db supported by [http://www.sqlalchemy.org/ sqlalchemy]. Common are postgres and mysql. Then edit the files /opt/noodle-ng/production.ini and /opt/noodle-ng/crawler.ini and look for the sqlalchemy.url. Now you need to create the database scheme. Change your current working directory to /opt/noodle-ng and run 
+
+ `paster setup-app production.ini`
+
+*Set up a Cron job for crawling*
+ Edit the file /etc/cron.d/99noodle-crawler to fit your needs. The script start_crawler.sh takes care that no more than one instance of the crawler is running. So you could use `* * * * *` in the cron file if you want to scan aggressive.
+
 
 == Technical Details ==
 The basesystem of the appliance is a stripped down scientific linux 6. Since Google code allows only a upload size up to 200MB we needed to tear appart the sl installation quite heavily.
