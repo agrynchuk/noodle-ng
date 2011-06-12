@@ -1,5 +1,3 @@
-#information about the noodle appliance
-
 Since Noodle NG requires quite some time and knowledge to setup from srcatch we want to provide you a fast and simple way. 
 
 == How To Get Started ==
