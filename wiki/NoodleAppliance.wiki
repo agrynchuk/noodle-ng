@@ -1,7 +1,7 @@
 Since Noodle NG requires quite some time and knowledge to setup from srcatch we want to provide you a fast and simple way. 
 
 == How To Get Started ==
-[https://code.google.com/p/noodle-ng/downloads/list Download] the latest appliance image. Decompress the image with [http://en.wikipedia.org/wiki/Xz xz]. You will get a [http://en.wikipedia.org/wiki/Open_Virtualization_Format Open Virtualization Format] packag. Import the package into the virtualization software of your choice.
+[https://code.google.com/p/noodle-ng/downloads/list Download] the latest appliance image. Decompress the image with [http://en.wikipedia.org/wiki/Xz xz]. You will get an [http://en.wikipedia.org/wiki/Open_Virtualization_Format Open Virtualization Format] package. Import the package into the virtualization software of your choice.
 
 The root password is "ketchup".
 
