@@ -1,0 +1,22 @@
+#information about the noodle appliance
+
+Since Noodle NG requires quite some time and knowledge to setup from srcatch we want to provide you a fast and simple way. 
+
+== How To Get Started ==
+[https://code.google.com/p/noodle-ng/downloads/list Download] the latest appliance image. Decompress the image with [http://en.wikipedia.org/wiki/Xz xz]. You will get a [http://en.wikipedia.org/wiki/Open_Virtualization_Format Open Virtualization Format] packag. Import the package into the virtualization software of your choice.
+
+The root password is "ketchup".
+
+Since we needed to strip down scientific linux 6 so heavily you most likely want to install some basic software: `yum groupinstall Base "Networking Tools" "Server Platform" "System administration tools" Virtualization "Virtualization Client"`
+
+*Change the root password!*
+
+edit the file /opt/noodle-ng/crawler.ini to fit your needs and run the crawler by starting the /opt/noodle-ng/start_crawler.sh shell script. This will populate the database. You find the webserver of your appliance at port 80.
+
+== Follow Up==
+ToDo
+
+== Technical Details ==
+The basesystem of the appliance is a stripped down scientific linux 6. Since Google code allows only a upload size up to 200MB we needed to tear appart the sl installation quite heavily.
+
+You will find Noodle NG at /opt/noodle-ng. There is also a apache config file we added at /etc/httpd/conf.d/noodle.conf.
