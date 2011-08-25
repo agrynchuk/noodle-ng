@@ -484,13 +484,6 @@ class IpRange (object):
             yield long2ip(i)
             i += 1
     #end __iter__
-    
-    def __len__(self):
-        """
-        Returns the length of the range
-        """
-        return self.endIp - self.startIp + 1
-    #end __len__
 #end class IpRange
 
 class IpRangeList (object):
@@ -586,13 +579,6 @@ class IpRangeList (object):
             for ip in r:
                 yield ip
     #end __iter__
-    
-    def __len__(self):
-        """
-        Returns total length of ranges
-        """
-        return sum([len(r) for r in self.ips])
-    #end __len__
 #end class IpRangeList
 
 def iptools_test ():

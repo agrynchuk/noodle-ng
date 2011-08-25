@@ -6,13 +6,11 @@ Therefor an actual version of pysmbc is needed.
 
 """
 
-from smbc import Context
-from urlparse import urlparse
-
+import smbc
 # smbc type shortcuts
-smbc_type = {'share': 3, 'folder': 7, 'file': 8}
+smbc_type = {'share':3, 'folder':7, 'file':8}
 
-c = Context()
+c = smbc.Context()
 
 def walk(top):
     """Directory tree generator.
@@ -30,11 +28,11 @@ def walk(top):
     dirpath, do os.path.join(dirpath, name).
     """
 
-    dirpath = urlparse(top).path
+    dirpath = top
     dirnames = []
     filenames = []
     
-    dir = c.opendir(top)
+    dir = c.opendir(dirpath)
     direntries = dir.getdents()
     for entry in direntries:
         if entry.name == "." or entry.name =="..":
@@ -57,7 +55,7 @@ def walk(top):
     
     for dirname in dirnames:
         #print "dirname: %s" % dirname
-        newpath = top + "/" + dirname
+        newpath = dirpath+"/"+dirname
         #print "newpath: %s" % newpath
         for dir in walk(newpath):
             yield dir
@@ -84,8 +82,31 @@ def stat(path):
     all others may be set 0 if not retrievable)
         
     """
+
+#    python-smbc-1.0.8 (ubuntu):
+#    print c.open("smb://localhost/downloads/BspKlausurAufg.pdf").fstat()
+#    (33188, 468894, 0, 4032, 0, 1, 1000, 1000, 60006, 0)
+#    vs.
+#    native os:
+#    os.stat("/home/moschlar/Downloads/BspKlausurAufg.pdf")
+#    posix.stat_result(st_mode=33188, st_ino=393329L, st_dev=2054L, st_nlink=1, st_uid=1000, st_gid=1000, st_size=60006L, st_atime=1294817044, st_mtime=1294817013, st_ctime=1294817013)
+#    vs.
+#    pysmbc-1.0.10 (source):
+#    return Py_BuildValue("(IkkkIIkkkk)",
+#        st.st_mode,st.st_ino,st.st_dev,st.st_nlink,
+#        st.st_uid,st.st_gid,st.st_size,
+#        st.st_atime,st.st_mtime,st.st_ctime);
+
+    if smbc.__name__.find("1.0.10"):
+        pass
     
-    return c.open(path).fstat()
+    try:
+        fstat = c.open(path).fstat()
+        #print fstat
+    except:
+        fstat = (0,0,0,0,0,0,0,0,0,0)
+    
+    return (0,0,0,0,fstat[6],fstat[7],fstat[8],0,0,0)
 
 def open(path):
     """Open file.
@@ -93,4 +114,5 @@ def open(path):
     Returns file handle specified by path
     """
     
-    return c.open(path)
+    f = c.open(path)
+    return f
