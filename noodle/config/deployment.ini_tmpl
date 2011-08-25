@@ -5,7 +5,7 @@
 #
 [DEFAULT]
 # WARGING == If debug is not set to false, you'll get the interactive
-# debugger on production, which is a huge security hole. 
+# debugger on production, which is a huge security hole.
 
 debug = false
 email_to = you@yourdomain.com
@@ -16,6 +16,9 @@ error_email_from = paste@localhost
 use = egg:Paste#http
 host = 0.0.0.0
 port = 8080
+
+[sa_auth]
+cookie_secret = ${app_instance_secret}
 
 [app:main]
 use = egg:Noodle-NG
@@ -36,6 +39,10 @@ app_instance_uuid = ${app_instance_uuid}
 # invalidate the URI when specifying a SQLite db via path name
 sqlalchemy.url = sqlite:///%(here)s/somedb.db
 sqlalchemy.echo = False
+
+# This line ensures that Genshi will render xhtml when sending the
+# output. Change to html or xml, as desired.
+templating.genshi.method = xhtml
 
 # WARNING: *THE LINE BELOW MUST BE UNCOMMENTED ON A PRODUCTION ENVIRONMENT*
 # Debug mode will enable the interactive debugging tool, allowing ANYONE to
@@ -74,7 +81,6 @@ qualname = sqlalchemy.engine
 # "level = DEBUG" logs SQL queries and results.
 # "level = WARN" logs neither.  (Recommended for production systems.)
 
-
 # If you create additional handlers, add them as a key to [handlers]
 [handler_console]
 class = StreamHandler
@@ -85,4 +91,4 @@ formatter = generic
 # If you create additional formatters, add them as a key to [formatters]
 [formatter_generic]
 format = %(asctime)s,%(msecs)03d %(levelname)-5.5s [%(name)s] %(message)s
-datefmt = %H:%M:%S
+datefmt = %Y-%m-%d %H:%M:%S

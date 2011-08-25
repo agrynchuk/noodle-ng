@@ -4,11 +4,10 @@
 
 from tg import TGController, tmpl_context
 from tg.render import render
-from pylons.i18n import _, ungettext, N_
-from tw.api import WidgetBunch
+from tg.i18n import ugettext as _, ungettext
 import noodle.model as model
 
-__all__ = ['Controller', 'BaseController']
+__all__ = ['BaseController']
 
 
 class BaseController(TGController):

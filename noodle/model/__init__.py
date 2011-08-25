@@ -5,39 +5,11 @@ from zope.sqlalchemy import ZopeTransactionExtension
 from sqlalchemy.orm import scoped_session, sessionmaker
 #from sqlalchemy import MetaData
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm.interfaces import SessionExtension
-
 
 # Global session manager: DBSession() returns the Thread-local
 # session object appropriate for the current web request.
-
-#maker = sessionmaker(autoflush=True, autocommit=False,
-#                     extension=ZopeTransactionExtension())
-
-class MySessionExtension(SessionExtension):
-    def before_commit(self, session):
-        
-        for instance in session.dirty:
-            try:
-                instance.__before_commit__(session=session, status="dirty")
-            except AttributeError:
-                pass
-            
-        for instance in session.new:
-            try:
-                instance.__before_commit__(session=session, status="new")
-            except AttributeError:
-                pass
-            
-        for instance in session.deleted:
-            try:
-                instance.__before_commit__(session=session, status="deleted")
-            except AttributeError:
-                pass
-            
-            
 maker = sessionmaker(autoflush=True, autocommit=False,
-                     extension=MySessionExtension())
+                     extension=ZopeTransactionExtension())
 DBSession = scoped_session(maker)
 
 # Base class for all of our model classes: By default, the data model is
@@ -68,7 +40,6 @@ metadata = DeclarativeBase.metadata
 
 def init_model(engine):
     """Call me before using any of the tables or classes in the model."""
-
     DBSession.configure(bind=engine)
     # If you are using reflection to introspect your database and create
     # table objects for you, your tables must be defined and mapped inside
@@ -86,6 +57,5 @@ def init_model(engine):
 
     #mapper(Reflected, t_reflected)
 
+
 # Import your model modules here.
-from noodle.model.share import host, serviceSMB, serviceFTP, folder, file, ping, content, meta, metaAtom
-from noodle.model.pinboard import post

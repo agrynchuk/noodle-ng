@@ -1,50 +1,24 @@
-﻿========================================================================
-                              Noodle-NG
-========================================================================
-          Noodle. Copyright 2009-2010 The Noodle Developers.
+This file is for you to describe the Noodle-NG application. Typically
+you would include information such as the information below:
 
-                               README
-========================================================================
+Installation and Setup
+======================
 
-    Noodle is a web search engine for local smb/cifs network shares 
-    (Windows/Samba).
+Install ``Noodle-NG`` using the setup.py script::
 
-    It consists of 
-    - a crawler which scans a given range of IP adresses for shares, 
-      collects data about shares, folders and files and stores that into
-      a database 
-    and 
-    - a front-end for making search queries to the database.
+    $ cd Noodle-NG
+    $ python setup.py install
 
-    It is written in the powerful scripting language Python and using 
-    TurboGears 2.0 as a framework for rapid web development.
+Create the project database for any model classes defined::
 
- Currently in work:
-========================================================================
-    - proxyDownloader to download/stream files from a smb-share via http
-    - extended crawler for metadata (in media files)
+    $ paster setup-app development.ini
 
- Features:
-========================================================================
-    - Search is customizable via keywords, you can search for specific 
-      file types or extensions, date of creation, etc
-    - Search results are listed per host, with each host having an 
-      online/offline-indicator
+Start the paste http server::
 
- Legal Notice:
-========================================================================
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
+    $ paster serve development.ini
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+While developing you may want the server to reload after changes in package files (or its dependencies) are saved. This can be achieved easily by adding the --reload option::
 
-    You should have received a copy of the GNU General Public License
-    along with this program.  If not, see <http://www.gnu.org/licenses/>.
+    $ paster serve --reload development.ini
 
-    An offline readable version of the GNU General Public License is 
-    included in the file COPYING.txt .
+Then you are ready to go.

@@ -3,7 +3,6 @@
 
 from noodle.config.app_cfg import base_config
 from noodle.config.environment import load_environment
-#from noodle.lib.middleware import ContentLengthMiddleware
 
 
 __all__ = ['make_app']

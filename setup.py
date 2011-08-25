@@ -1,4 +1,14 @@
 # -*- coding: utf-8 -*-
+#quckstarted Options:
+#
+# sqlalchemy: True
+# auth:       None
+# mako:       False
+#
+#
+
+import sys
+
 try:
     from setuptools import setup, find_packages
 except ImportError:
@@ -6,34 +16,41 @@ except ImportError:
     use_setuptools()
     from setuptools import setup, find_packages
 
+testpkgs=['WebTest >= 1.2.3',
+               'nose',
+               'coverage',
+               'wsgiref',
+               'repoze.who-testutil >= 1.0.1',
+               ]
+if sys.version_info[:2] == (2,4):
+    testpkgs.extend(['hashlib', 'pysqlite'])
+
 setup(
-    name='Noodle NG',
+    name='Noodle-NG',
     version='0.1',
     description='',
     author='',
     author_email='',
     #url='',
     install_requires=[
-        "TurboGears2 >= 2.0b7",
-        "Catwalk >= 2.0.2",
-        "Babel >=0.9.4",
-        #can be removed iif use_toscawidgets = False
-        "toscawidgets >= 0.9.7.1",
-        "zope.sqlalchemy >= 0.4 ",
-        "repoze.tm2 >= 1.0a4",
-                        ],
+        "TurboGears2 >= 2.1.2",
+        "Genshi",
+        "zope.sqlalchemy >= 0.4",
+        "repoze.tm2 >= 1.0a5",
+        "sqlalchemy",
+        "tw.forms",
+        ],
     setup_requires=["PasteScript >= 1.7"],
-    paster_plugins=['PasteScript', 'Pylons', 'TurboGears2', 'tg.devtools'],
+    paster_plugins=['PasteScript', 'Pylons', 'TurboGears2'],
     packages=find_packages(exclude=['ez_setup']),
     include_package_data=True,
     test_suite='nose.collector',
-    tests_require=['WebTest', 'BeautifulSoup'],
+    tests_require=testpkgs,
     package_data={'noodle': ['i18n/*/LC_MESSAGES/*.mo',
                                  'templates/*/*',
                                  'public/*/*']},
     message_extractors={'noodle': [
             ('**.py', 'python', None),
-            ('templates/**.mako', 'mako', None),
             ('templates/**.html', 'genshi', None),
             ('public/**', 'ignore', None)]},
 
@@ -44,4 +61,8 @@ setup(
     [paste.app_install]
     main = pylons.util:PylonsInstaller
     """,
+    dependency_links=[
+        "http://www.turbogears.org/2.1/downloads/current/"
+        ],
+    zip_safe=False
 )

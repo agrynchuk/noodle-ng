@@ -33,10 +33,6 @@ a {
 	position: relative;
 	font-size: 36px;
 }
-#header h1 a {
-	color: #ffffff;
-	text-decoration: none;
-}
 
 #header h1 .subtitle {
 	font-size: 60%;
@@ -80,7 +76,6 @@ ul#mainmenu li a:hover, ul#mainmenu li a.active {
 
 ul#mainmenu li.first a {
 	background: none;
-	font-weight: bold;
 }
 
 ul#mainmenu li.first a:hover, ul#mainmenu li.first a.active {
@@ -184,6 +179,22 @@ form.loginfields input.text
     color: #fff;
 }
 
+form.loginfields #loginremember
+{
+    float:right;
+    vertical-align: middle;
+    height: 26px;
+}
+
+form.loginfields #labelremember 
+{
+    float: right;
+    width: auto;
+    margin:0;
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
 form.loginfields input#submit
 {
     background: url('../images/loginbottombg.png') bottom left no-repeat;
@@ -265,7 +276,6 @@ form.loginfields input#submit
 }
 .foottext p {
 	margin: 0; padding: 0;
-	text-align: center;
 }
 .code {
 font-family:monospace;

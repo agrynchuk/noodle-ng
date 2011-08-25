@@ -14,7 +14,6 @@ convert them into boolean, for example, you should use the
 """
 
 from tg.configuration import AppConfig
-import tg
 
 import noodle
 from noodle import model
@@ -25,6 +24,8 @@ base_config.renderers = []
 
 base_config.package = noodle
 
+#Enable json in expose
+base_config.renderers.append('json')
 #Set the default renderer
 base_config.default_renderer = 'genshi'
 base_config.renderers.append('genshi')
@@ -32,10 +33,7 @@ base_config.renderers.append('genshi')
 # you should try to use this renderer instead.
 # warning: for the moment chameleon does not handle i18n translations
 #base_config.renderers.append('chameleon_genshi')
-
 #Configure the base SQLALchemy Setup
 base_config.use_sqlalchemy = True
 base_config.model = noodle.model
 base_config.DBSession = noodle.model.DBSession
-
-tg.include_widgets = ['turbogears.mochikit']
