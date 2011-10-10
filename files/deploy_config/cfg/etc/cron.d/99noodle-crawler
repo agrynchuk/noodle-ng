@@ -1,0 +1,6 @@
+SHELL=/bin/bash
+PATH=/sbin:/bin:/usr/sbin:/usr/bin
+MAILTO=root
+HOME=/
+0,20,40 * * * * crawler /opt/noodle-ng/start_crawler.sh
+0 0,12 * * * crawler /opt/noodle-ng/start_statsd.sh
